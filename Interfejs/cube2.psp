@@ -1,0 +1,412 @@
+<%@ page language="PL/SQL" %>
+<%@ plsql procedure="cube2" %>
+
+<html>
+	 <head>
+   <style type="text/css">
+      div.show {
+      background: rgba(22, 123, 255, 0.6);
+      border: none;
+      color: #FFFFFF;
+      height: 30px;
+      font-size: 22px;
+      line-height: 30px;
+      text-align: center;
+      padding: 12px;
+      margin-top: 0;
+      width: 300px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    body {
+      background: #F2F1F0;
+      font-family: 'Roboto', sans-serif;
+      margin: 0 !important;
+      padding: 0 !important;
+
+    }
+
+    form {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+    }
+
+    header {
+      font-size: 30px;
+      border: 1px solid #999999;
+      width: 980px;
+      height: 40px;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #fff;
+      background: #004DAA;
+    }
+
+    div.scrollToTop{
+        width:80px; 
+        height:40px;
+        position:fixed;
+        top:700px;
+        right:10px;
+        display:none;
+    background: #004DAA;
+      font-size: 20px;
+      line-height: 40px;
+      font-size: 18px;
+      color: #fff;
+    border-right: 3px solid #002755;
+      cursor: pointer;
+      font-weight: normal;
+      text-align: center;
+        padding:10px; 
+    }
+
+    div.param {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    span.naglowek {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    input {
+      margin-top: 20px;
+    }
+
+    div.content {
+      font-size: 30px;
+      border: 1px solid #999999;
+      width: 980px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background: #cccccc;
+    }
+
+    span.text {
+      font-size: 18px;
+      text-align:justify;
+    }
+
+    div.container {
+    width: 1000px;
+    position: absolute;
+    margin-top: 40px;
+    margin-left:auto;
+    margin-right:auto;
+    font-family: 'Roboto', sans-serif;
+    padding-left:0;
+    left: 250px;
+    height: 1000px;
+    }
+
+    input, select {
+      background: rgba(22, 123, 255, 0.2);
+      border: none;
+      color: black;
+      height: 50px;
+      font-size: 22px;
+      padding: 12px;
+      margin-top: 10px;
+    }
+
+    form span {
+      margin-bottom: 100px;
+    }
+
+    input {
+      width: 300px;
+      background: rgba(22, 123, 255, 0.6);
+      border: none;
+      color: #FFFFFF;
+    }
+
+    option {
+      display: block;
+      width: 200px;
+      height: 50px;
+      font-size: 18px;
+    }
+
+    table, th, td {
+        margin-top: 20px;
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+
+    table {
+      margin-top: 0 !important;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    th {
+      background: #5ea3ff;
+    }
+
+    tr {
+      background: #e6e6e6;
+    }
+
+    tr:nth-of-type(2n) {
+      background: #bcd9ff;
+    }
+
+    div.menu {
+    width:200px;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    background: #004DAA;
+    border-right: 3px solid #002755;
+    z-index: 9999;
+    }
+
+    nav#cssmenu{
+      margin-top: 35px;
+    }
+
+    .top{
+      border-top: 1px solid #000000;
+    }
+
+    #cssmenu,
+    #cssmenu ul,
+    #cssmenu li,
+    #cssmenu a {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      list-style: none;
+      font-weight: normal;
+      text-decoration: none;
+      line-height: 18px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+      position: relative;
+    }
+    #cssmenu a {
+      line-height: 30px;
+      padding: 6px 15px;
+      min-height: 30px;
+    }
+    #cssmenu {
+      width: 200px;
+    }
+    #cssmenu > ul > li {
+      cursor: pointer;
+      background: #000;
+      border-top: 1px solid #000000;
+    }
+    #cssmenu > ul > li:last-child {
+      border-bottom: 1px solid #000000;
+    }
+    #cssmenu > ul > li > a {
+      font-size: 20px;
+      display: block;
+      color: #ffffff;
+      background: #004DAA;
+    }
+    #cssmenu > ul > li > a:hover {
+      text-decoration: none;
+    }
+    #cssmenu > ul > li.active > a {
+      background: #0067E2;
+      color: #ffffff;
+    }
+    #cssmenu > ul > li.has-sub > a:after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: 5px solid transparent;
+      border-left: 5px solid #ffffff;
+    }
+    /* Sub menu */
+    #cssmenu ul ul {
+      padding: 0;
+      display: none;
+    }
+    #cssmenu ul ul a {
+      background: #0061D5;
+      display: block;
+      color: #d8d8d8;
+      font-size: 18px;
+    }
+    #cssmenu ul ul li {
+      border-bottom: 1px solid #000000;
+    }
+    #cssmenu ul ul li.odd a {
+      background: #0074FF;
+    }
+    #cssmenu ul ul li:last-child {
+      border: none;
+    }
+
+  </style>
+  <title>Hurtownia danych</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+    <script src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
+  <script type='text/javascript'>
+    $( document ).ready(function() {
+      $('#cssmenu ul ul li:odd').addClass('odd');
+      $('#cssmenu ul ul li:even').addClass('even');
+      $('#cssmenu > ul > li > a').click(function() {
+          $('#cssmenu li').removeClass('active');
+          $(this).closest('li').addClass('active'); 
+          var checkElement = $(this).next();
+          if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+            $(this).closest('li').removeClass('active');
+            checkElement.slideUp('normal');
+          }
+          if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+            $('#cssmenu ul ul:visible').slideUp('normal');
+            checkElement.slideDown('normal');
+          }
+          if($(this).closest('li').find('ul').children().length == 0) {
+            return true;
+          } else {
+            return false; 
+          }   
+      });
+    });
+  </script>
+
+  <script type="text/javascript" language="javascript">
+      $(document).ready(function(){
+        $(window).scroll(function(){
+        if ($(this).scrollTop() > 80) {
+          $('.scrollToTop').fadeIn();
+        } else {
+          $('.scrollToTop').fadeOut();
+        }
+      });
+  
+      $('.scrollToTop').click(function(){
+        $('html, body').animate({scrollTop : 0},800);
+        return false;
+      });
+    });
+    </script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function() {
+        $("#toggle1").click(function(){
+              $("#target1").slideToggle( 'slow' );
+            });
+        });
+      </script>
+
+      <script type="text/javascript" language="javascript">
+      $(document).ready(function() {
+          $('#target1').hide();
+      });
+    </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+
+<body>
+  <div class="menu">
+    <nav id="cssmenu">
+      <ul>
+          <li>
+            <a href='strona_glowna'><span>STRONA G£ÓWNA</span></a>
+          </li>
+          <li class='has-sub'><a href='#'><span>TABELE</span></a>
+            <ul>
+                <li>
+                  <a href='tabela_zlecenie'><span>ZLECENIE</span></a>
+                </li>
+                <li>
+                  <a href='tabela_typ_zlecenia'><span>TYP ZLECENIA</span></a>
+                </li>
+                <li>
+                  <a href='tabela_typ_produktu'><span>TYP PRODUKTU</span></a>
+                </li>
+                <li>
+                  <a href='tabela_klient'><span>KLIENT</span></a>
+                </li>
+                <li>
+                  <a href='tabela_grupa_klienteli'><span>GRUPA KLIENTELI</span></a>
+                </li>
+                <li>
+                  <a href='tabela_pracownik'><span>PRACOWNIK</span></a>
+                </li>
+                <li>
+                  <a href='tabela_stanowisko'><span>STANOWISKO</span></a>
+                </li>
+                <li>
+                  <a href='tabela_data'><span>DATA</span></a>
+                </li>
+                <li>
+                  <a href='tabela_dzien_tygodnia'><span>DZIEÑ TYGODNIA</span></a>
+                </li>
+                <li>
+                  <a href='tabela_miesiac'><span>MIESI¥C</span></a>
+                </li>
+                <li>
+                  <a href='tabela_kwartal'><span>KWARTA£</span></a>
+                </li>
+                <li class='last'>
+                  <a href='tabela_rok'><span>ROK</span></a>
+                </li>
+              </ul>
+          </li>
+          <li>
+            <a href='zapytania_rollup_all'><span>ZAPYTANIA ROLLUP</span></a>
+          </li>
+          <li>
+            <a href='zapytania_cube_all'><span>ZAPYTANIA CUBE</span></a>
+          </li>
+          <li>
+            <a href='zapytania_grouping_sets_all'><span>ZAPYTANIA GROUPING SETS</span></a>
+          </li>
+          <li>
+            <a href='zapytania_okna_all'><span>OKNA RUCHOME</span></a>
+          </li>
+          <li>
+            <a href='zapytania_partycje_all'><span>PARTYCJE OBLICZENIOWE</span></a>
+          </li>
+          <li>
+            <a href='zapytania_rankingi_all'><span>RANKINGI</span></a>
+          </li>
+      </ul>
+    </nav>
+  </div>
+
+<div class="container">
+  <header>WYNIK: ZAPYTANIE CUBE</header>
+	<div class="content">
+	<table>
+		<tr>
+			<th>ID KLIENTA</th>
+			<th>ID TYPU ZLECENIA</th>
+      <th>ILOŒÆ ZLECEÑ</th>
+      <th>ZYSK</th>
+		</tr>
+		<% FOR I IN (SELECT NVL(TO_CHAR(ZLECENIE.KLIENT_ID_KLIENTA),' ') AS "ID KLIENTA", NVL(TO_CHAR(ZLECENIE.TYP_ZLECENIA_ID_TYPU),' ') AS "TYP ZLECENIA",
+                  ROUND(COUNT(ZLECENIE.ID_ZLECENIA),0) AS "ILOSC ZLECEN", TO_CHAR(ROUND(SUM(ZLECENIE.ZYSK),0))||' Z£' AS "ZYSK" 
+                  FROM ZLECENIE GROUP BY CUBE(ZLECENIE.KLIENT_ID_KLIENTA,ZLECENIE.TYP_ZLECENIA_ID_TYPU)) LOOP %>
+			<tr>
+				<td><%= I."ID KLIENTA" %></td>
+				<td><%= I."TYP ZLECENIA" %></td>
+        <td><%= I."ILOSC ZLECEN" %></td>
+        <td><%= I."ZYSK" %></td>
+			</tr>
+		<% END LOOP; %>
+	</table>
+
+</div>
+
+</div>
+<div class="scrollToTop">DO GÓRY</div>
+
+</body>
+</html>

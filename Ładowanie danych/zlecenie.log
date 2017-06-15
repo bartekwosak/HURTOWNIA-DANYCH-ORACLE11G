@@ -1,0 +1,58 @@
+
+SQL*Loader: Release 11.2.0.2.0 - Production on Pn Cze 12 07:29:32 2017
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   zlecenie.ctl
+Data File:      zlecenie.csv
+  Bad File:     zlecenie.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table ZLECENIE, loaded from every logical record.
+Insert option in effect for this table: APPEND
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+ID_ZLECENIA                         FIRST     *   ,       CHARACTER            
+DATA_ID_DATY                         NEXT     *   ,       CHARACTER            
+TYP_ZLECENIA_ID_TYPU                 NEXT     *   ,       CHARACTER            
+KLIENT_ID_KLIENTA                    NEXT     *   ,       CHARACTER            
+PRACOWNIK_ID_PRACOWNIKA              NEXT     *   ,       CHARACTER            
+CENA_USLUGI                          NEXT     *   ,       CHARACTER            
+    SQL string for column : "TO_NUMBER(:CENA_USLUGI,'999999.99')"
+KOSZT_MATERIALOW                     NEXT     *   ,       CHARACTER            
+    SQL string for column : "TO_NUMBER(:KOSZT_MATERIALOW,'999999.99')"
+ZYSK                                 NEXT     *   ,       CHARACTER            
+    SQL string for column : "TO_NUMBER(:ZYSK,'999999.99')"
+CZAS_TRWANIA                         NEXT     *   ,       CHARACTER            
+
+
+Table ZLECENIE:
+  30000 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 148608 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:         30000
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Pn Cze 12 07:29:32 2017
+Run ended on Pn Cze 12 07:29:32 2017
+
+Elapsed time was:     00:00:00.54
+CPU time was:         00:00:00.13
