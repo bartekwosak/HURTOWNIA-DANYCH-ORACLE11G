@@ -26,3 +26,5 @@ Wykorzystane technologie:
 - JavaScript
 
 Ponadto napisano własny, inteligentny generator danych do poprawnych analiz w Java SE zgodnie z paradygmatem obiektowym.
+
+Celem łatwego tworzenia tabel hurtowni danych oraz ich usuwania napisano specjalną aplikację kliencką w wersji rekurencyjnej za pomocą SQL*Plus.
