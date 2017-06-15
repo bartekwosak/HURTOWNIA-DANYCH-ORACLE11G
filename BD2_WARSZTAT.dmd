@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="BD2_WARSZTAT" id="196C2D02-2CE6-EABD-1D3E-67436C2105E4" version="3.5">
-<createdBy>Bartłomiej Osak</createdBy>
-<createdTime>2017-03-22 17:06:25 UTC</createdTime>
-<ownerDesignName>BD2_WARSZTAT</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>196C2D02-2CE6-EABD-1D3E-67436C2105E4</designId>
-</OSDM_Design>
