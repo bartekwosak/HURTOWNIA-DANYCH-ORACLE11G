@@ -25,3 +25,4 @@ Wykorzystane technologie:
 - jQuery
 - JavaScript
 
+Ponadto napisano własny, inteligentny generator danych do poprawnych analiz w Java SE zgodnie z paradygmatem obiektowym.
